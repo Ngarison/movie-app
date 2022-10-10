@@ -1,5 +1,6 @@
-import React, {useRef } from 'react';
+import React from 'react';
 import MovieCard from './MovieCard';
+import uuid from 'react-uuid';
 
 const MovieList = ({movieList}) => {
 
@@ -8,7 +9,7 @@ const MovieList = ({movieList}) => {
         <div>
             {movieList.map(movieCard =>{
                 return (
-                    <MovieCard movieCard={movieCard} />
+                    <MovieCard movieCard={movieCard} key={uuid()} />
                 )
             })}
 
