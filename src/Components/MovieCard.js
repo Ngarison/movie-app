@@ -1,24 +1,17 @@
 import React, {useState} from 'react';
 import uuid from 'react-uuid';
 
-const MovieCard = ({movie}) => {
+const MovieCard = ({movieCard}) => {
 
-    ///id=uuid(); 
-     const initialValues =[];
-     initialValues.push(movie);
-
-    const [Movie, setMovie]=useState(initialValues);
     return (
         <>
-        {Movie.map((movie)=>{
-            return<ul key={uuid()}><h4>MOVIECARD</h4>
-            <li>{movie.title}</li>
-            <li>{movie.description}</li>
-            <li>{movie.posterUrl}</li>
-            <li>{movie.rating}</li>
-            </ul> 
-        })}
-        
+        <h3>MovieCard</h3>
+          <div key={uuid()}>
+            <div>{movieCard.title}</div>
+            <div>{movieCard.description}</div>
+            <div>{movieCard.posterUrl}</div>
+            <div>{movieCard.rating}</div>
+          </div> 
         </>
     );
     
