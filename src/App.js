@@ -1,40 +1,54 @@
 import './App.css';
 import MovieList from './Components/MovieList';
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import Header from './Components/Header';
 
-function App(props) {
+function App() {
 
-  const refTitle=useRef();
+    const refTitle=useRef();
     const refDescription=useRef();
     const refPosterUrl=useRef();
     const refRating=useRef();
 
-    /*let titleValue;
-    let descriptionValue;
-    let posterUrlValue;
-    let ratingValue;*/
-    let movie;
+    const [ titleInput, setTitleInput ] = useState("A");
+    const [ descriptionInput, setDescriptionInput ] = useState("B");
+    const [ posterUrlInput, setPosterUrlInput ] = useState("C");
+    const [ ratingInput, setRatingInput ] = useState("D");
+    let movie={};
+    const data = [];
+
+
+    /*useEffect(()=>{
+            setTitleInput("");
+            setDescriptionInput("");
+            setPosterUrlInput("");
+            setRatingInput("");
+    });*/
 
     const addButton= ()=>{
-            props.titleValue= refTitle.current.value;
-            props.descriptionValue=refDescription.current.value;
-            props.posterUrlValue=refPosterUrl.current.value;
-            props.ratingValue=refRating.current.value;
-            console.log(props.titleValue, props.descriptionValue, props.posterUrlValue, props.ratingValue);
 
-            movie={title:props.titleValue, description:props.descriptionValue,  posterUrl:props.posterUrlValue, rating:props.ratingValue};
+            setTitleInput(refTitle.current.value);
+            setDescriptionInput(refDescription.current.value);
+            setPosterUrlInput(refPosterUrl.current.value);
+            setRatingInput(refRating.current.value);
+
+            console.log(titleInput, descriptionInput, posterUrlInput, ratingInput);
+            movie.title=titleInput;
+            movie.description=descriptionInput;
+            movie.posterUrl=posterUrlInput;
+            movie.rating=ratingInput;
+            data.push(movie);
             console.log(movie);
+            //console.log(data);
      }
-     movie={title:"titleValue", description:"descriptionValue",  posterUrl:"posterUrlValue", rating:"ratingValue"};
-     const data = [];
-     data.push(movie);
+      
+     const [ movieList, setMovieList ] = useState(data);   
 
-  const [ movieList, setMovieList ] = useState(data);
+  
   return (
     <div className="App">
       <Header/>
-      <MovieList movieList={movieList}/>
+      <MovieList movieList={movieList}/> 
       <div>
             <h4>Add of a New Movie</h4>
             <input placeholder='Title'  ref={refTitle}/>

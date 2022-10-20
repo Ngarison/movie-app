@@ -4,7 +4,6 @@ import uuid from 'react-uuid';
 
 const MovieList = ({movieList}) => {
 
-
     return (
         <div>
             {movieList.map(movieCard =>{
@@ -12,9 +11,7 @@ const MovieList = ({movieList}) => {
                     <MovieCard movieCard={movieCard} key={uuid()} />
                 )
             })}
-
         </div>
     );
 }
-
 export default MovieList;
