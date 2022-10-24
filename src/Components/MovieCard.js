@@ -5,7 +5,7 @@ const MovieCard = ({movieCard}) => {
 
     return (
         <>
-        <h3>MovieCard</h3>
+        <h3>MovieCard:{movieCard.id}</h3>
           <div key={uuid()}>
             <div>{movieCard.title}</div>
             <div>{movieCard.description}</div>

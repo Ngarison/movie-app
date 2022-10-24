@@ -12,7 +12,14 @@ const AjoutMovie = () => {
     let ratingValue;
     let film;*/
 
+    const [ id, setId ] = useState(0);
+    const [ titleInput, setTitleInput ] = useState('');
+    const [ descriptionInput, setDescriptionInput ] = useState('');
+    const [ posterUrlInput, setPosterUrlInput ] = useState('');
+    const [ ratingInput, setRatingInput ] = useState('');
+
     const addButton= ()=>{
+
             this.titleValue= refTitle.current.value;
             this.descriptionValue=refDescription.current.value;
             this.posterUrlValue=refPosterUrl.current.value;
@@ -22,11 +29,6 @@ const AjoutMovie = () => {
             film={title:this.titleValue, description:this.descriptionValue,  posterUrl:this.posterUrlValue, rating:this.ratingValue};
             console.log(film);
      }
-
-     const [ titleInput, setTitleInput ] = useState('');
-     const [ descriptionInput, setDescriptionInput ] = useState('');
-     const [ posterUrlInput, setPosterUrlInput ] = useState('');
-     const [ ratingInput, setRatingInput ] = useState('');
 
      const handleChange = (e) => {
         setUserInput(e.currentTarget.value)
